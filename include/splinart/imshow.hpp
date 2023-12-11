@@ -16,9 +16,9 @@ namespace splinart
     ///
     inline void imshow(xt::xtensor<double, 3>& img)
     {
-        auto width  = img.shape(0);
-        auto height = img.shape(1);
-        cv::Mat M(width, height, CV_64FC4, static_cast<void*>(img.data()));
+        const int width  = static_cast<int>(img.shape(0));
+        const int height = static_cast<int>(img.shape(1));
+        const cv::Mat M(width, height, CV_64FC4, static_cast<void*>(img.data()));
         cv::imshow("splinart", M);
         cv::waitKey(0);
     }
